@@ -31,6 +31,16 @@ public String toString() {
 		System.out.println("hobby : "+nithya.hobby);
 		System.out.println(nithya);
 		
+		Student joe = new Student(23,"Joe", "Painting");
+		joe = nithya;
+		
+		joe.name = "Queen";
+		System.out.println(" Printing nithya.name after updating to Queen is : "+nithya.name);
+		nithya.age = 43;
+		System.out.println(joe.age);
+		System.out.println(joe);
+		System.out.println(nithya);
+		
 		
 	}
 
