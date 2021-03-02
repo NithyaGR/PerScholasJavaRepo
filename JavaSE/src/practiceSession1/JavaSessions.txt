@@ -1,0 +1,273 @@
+
+Data types and Variables
+
+Data types - 2 types- Primitive data types - Non primitive or reference data types
+
+Primitive data types 
+
+Integers, Decimals, char, boolean.
+
+For integers 
+
+byte, short, int, long, take 1, 2, 4, 8 bytes space in the memory
+
+For decimals 
+
+float and double 4 and 8 bytes
+
+char - 2 bytes, boolean - 1 bit - check this.
+
+Variables - 
+
+1. Name of the memory to store the data 
+2. It's stored in the stack. 
+3. Declaration and definition.
+ Declaration syntax => datatype nameOfTheVariable; then nameOFTheVariable = value; 
+ Or we can do together. 
+datatype nameOfTheVariable = value; 
+
+3 types of variables
+1. Instance variables or Global Variables - declared inside the class outside main method - globally,
+   you need an object to access these variables - draw picture to explain - object specific, some common
+   terminology to call this as field or attribute
+2. Static Variables - declared inside class outside main - with the key word static,
+   No need an object to access. As these are class specific - These are common for all the objects.
+   Class level 
+3. Local variables - declared inside any method - memory exists within the lifetime of the method
+
+Explain the syntax
+
+Classes and Objects
+Classes are template or blue print for creating objects - 
+Classes are user defined data types
+
+Objects are any real life entity - which has state and behavior .
+State is something you cannot change - we use variables to address them
+Behavior is what it does. - actions - we use methods to specify 
+How to create an object - There are more than one way. We'll use new key word.
+
+Encapsulation - Data hiding - We have control to make the files - read only or write only - hiding the 
+implementation -
+
+
+
+Operators - 
+Arrays, String
+Methods - static methods, non static methods - can be accessed only using objects.
+
+
+String - 
+Non primitive - immutable - explain why with examples.
+String is non primitive data type 
+Strings are immutable
+
+
+Encapsulation - 
+
+
+
+Session-2
+
+Methods,- topics - main, static, non static 
+Inheritance - Access Modifiers - topics - all types of inheritance - 
+Show how the object are created using constructor - the order - with no arg constructor.
+Then constructor with parameter. 
+super() key word. What it does? Where it needs to be written?
+
+
+
+Constructors - this, super.
+Polymorphism - Method over riding, over loading
+What is the need for overriding? 
+1. Either the old logic is totally obsolete for one particular method - you need to create a subclass to 
+override that particular method where the rest of the available methods are still in great use
+
+Or you may need to add an additional 20% new logic to existing logic. 
+In this case you need to call the super class method's logic. For calling the same method we'll use the 
+key word super.
+
+key word final
+
+Abstract class - In the Employee class, create subclasses, Full stack developer, front-end developer, 
+Tester - explain why you dodn't have to create an object of Employee. 
+Interface - establish a contract/guidelines  and through inheritance every child class can follow the same contract,
+and maintain the uniformity. 2) Establishes Polymorphic relationship down the chain.
+
+Base class reference pointing to subclass object
+
+Flexibility to change the subclass any time and use the same methods. 
+Visibility is to only the parent class methods, but if there are overridden methods, priority goes to 
+
+
+ 
+Collections - frame work
+
+List (Interface) - collection of elements where insertion order is maintained
+
+ArrayList
+LinkedList
+Set - collection of unique elements 
+Map - collection of elements with key and pair
+ 
+ IQ - array vs Array list
+ Array list - internally uses array of objects
+ Array list dynamic, you can add element, remove element - 
+ when the size reaches 80% of the size -threshhold, it'll double the size by creating new array
+ with doubled size and copy all the elements - that's why it's dynamic 
+ 
+ Generic framework - 
+ Initially Java Lists were like this
+ List myList = new ArrayList();
+ myList.add("Nithya");
+ myList.add("FSD");
+ myList.add(100000.00);
+ 
+ int sal  = myList.get(2); //most of the cases we don't know what type of value we are getting 
+ // from web services
+ 
+ So they changed to generic type - introduced the angular braces
+ 
+ List <Integer> myList = new ArrayList <Integer> ();
+  
+  //This way we know what value we'll get. In the time of entry it'll throw compilations error - 
+  
+  How will you store hetrogenious data?
+  
+  List <Employee> myEmpList = new ArrayList <Employee> ();
+  First create class called Employee with required fields, and create your list like above.
+  
+  myEmpList.add(myEmpObject1);
+  size is there as it's index based - internally stores in array
+  4 ways to printout 
+  normal for -
+  java 5 - for each for( DataType varName : listName(obj ){sysout varNAme}
+  
+  java 8 - myEmpList.forEach(s -> System.out.println(s));
+  
+  Iterator way
+  Iterator <Employee> myIterator = myEmpList.iterator();
+  while(myIterator.hasNext()){
+   // try - myEmpList.add(new Employee()); // 2 diiferent objects - iterator and myEmpList 
+   // same error if you use for each also - as it takes the copy - 
+   // to over come - try myIterator.remove();
+  	sysout(myIterator.next())
+  }
+  //myEmpList.iterator() will give iterator instance
+  IQ - concurrent modification exception - 
+  Iterator and for each - run on different thread - while printing out the lists, 
+  if you add or delete some items, it'll throw the above exception - 
+  
+  Why? Iterator gets a static copy - not the real copy. 
+  You shouldn't add or remove while iterating - //try 
+  
+  Iterator <Employee> myIterator = myEmpList.iterator();
+  int count = 0;
+  
+  while(myIterator.hasNext()){
+    if(count ==2) {
+       myIterator.remove();}
+  	sysout(myIterator.next())
+  	count++;
+  }
+  When you print an object sysout(emp) it will call toString() method of object class - 
+  which will print the name of the object - 
+   memory address of the object - hexa decimal string of the hashcode
+  **********************************************
+  LinkedList
+  
+Nodes
+A->B->C->D
+Nodes contains data and a pointer (memory) to the next element  
+
+Insertion and deletion is made easy - as each node is scattered in memory -
+Insert C1 after C is easy
+
+Just change the pointer attched to C (pointing to D) to the pointer of C1 point to C2 and then the 
+pointer of D here in C2.
+
+A->B->C->C2->D
+
+IQ - Arraylist vs Linked List - Which one do you refer? 
+
+Whenever more insertions and deletions are coming to place - use Linked Lists
+
+When you do more searching - go for searching and sorting - because it's index based - easier to 
+search or sort
+
+
+Set
+
+Eliminate duplicate 
+Doesn't maintain order
+internally it maintains Hash table 
+
+It's faster
+array - removing duplicate may take n*n chances
+int [] arr = new int[10]
+
+%10 - bucket
+
+first value = 73 => 73%10 = 3 it puts arr[3] = 73
+
+386%10 = 6 => arr[6] = 386; so on.. until all the elements are filled -linear search takes time
+
+If you want to search 386 => it will directly go to 386%10 = 6 so arr[6] and fetch the value
+
+But if there is another number like 16?
+Collision technique - linear chaining  - node array to that particular element 
+
+arr[6] => cannot store 16 on  arr[6] it will store linked array using nodes 
+arr[6] => v1 -> v2 -> v3 soo on --- 
+when there are more collisions occurs - internally they moved to tree - 
+
+
+
+Treeset - 
+
+implement tree structure 
+it sorts the data alphabetc order
+Aviod - it takes lot of time to sort
+
+Linked Hash Set - maintains insertion order - eliminate duplicate values as it's Set obviously
+
+It won't add the duplicate - it won't throw error - simply it wont add - IQ
+
+add() will return boolean - 
+
+addAll()
+
+myNewList.addAll(myList) => This will remove the duplicate too
+
+toString() => Sysout calls this method of the Object Class - ass you pass the instance of the class
+
+Hashcode - java generates a unique code internally for every objects 
+if 2 objects are equal their hashcodes are equal too that means both the references are pointing to 
+the same object
+
+If you create 3 emp objects and store it in a Hash set - if add 2 objects of same value
+
+EMp emp1 = new Emp(1001,"Nithya",1200000);
+Emp emp2 = new Emp(1002,"Krishna", 1230000);
+Emp emp3 = new Emp(1002,"Krishna", 1230000);
+
+Set <Emp> mySet = new HashSet<Emp>();
+
+mySet.add(emp1);
+mySet.add(emp2);
+mySet.add(emp3);
+
+What is the output if if you print mySet.size(); why?
+
+Over ride hashcode() and equals() method IQ -FAQ IQ  VERY IMPORTANT VERY IMPORTANT
+
+
+
+
+
+
+
+
+ 
+
+
+

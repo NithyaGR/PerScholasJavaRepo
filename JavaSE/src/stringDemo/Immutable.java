@@ -17,8 +17,8 @@ public class Immutable {
 		System.out.println(a.toString());
 		String name = new String("Nithya");
 		System.out.println(name);
-		Integer i = new Integer(12);
-		System.out.println(i);
+//		Integer i = new Integer(12);
+//		System.out.println(i);
 		
 		
 		

@@ -1,4 +1,4 @@
-package mod3W1HW1Parrot;
+package mod3W1HW1AndHW2;
 
 import java.util.Scanner;
 
